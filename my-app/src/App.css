@@ -1,7 +1,10 @@
+/* this below is what sets the function app text. */
 .App {
   text-align: center;
 }
-
+.title {
+  /* color: blue; */
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
