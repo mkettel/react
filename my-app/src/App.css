@@ -30,6 +30,38 @@
 .App-link {
   color: #61dafb;
 }
+.header {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.header p {
+  margin-right: 10px;
+}
+.manager {
+  display: flex;
+}
+.manager p {
+  margin-right: 10px;
+}
+
+
+/* Menu Section */
+.menu {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.menuItem {
+  display: grid;
+  grid-template-columns: 1fr .5fr;
+  justify-content: space-between;
+  justify-items: flex-start;
+
+}
+.menuItem p {
+  margin: 10px;
+}
 
 @keyframes App-logo-spin {
   from {
