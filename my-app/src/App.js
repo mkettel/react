@@ -1,14 +1,18 @@
 import logo from './logo.svg';
+// this imports the css file to the application file
 import './App.css';
 
 function App() {
   const name = <h1 className='title'>Mountain View Coffee </h1>; // you can put the html as a variable then call it below which is very useful
+  const price = 15.00;
+  const redText = false;
   return (
     <div className="App">
       {name}
+      {price >= 15.00 ? <p>Add a free cookie?</p> : <p>Spend $15 or more to get a free cookie!</p>}
       <div className="menu">
         <div className="drinks">
-          <h3>Drinks</h3>
+          <h3 style={{color: redText ? "red" : "black"}}>Drinks</h3>
           <MenuItem name="Dirty Chai" price={5.00}/>
           <MenuItem name="Mocha" price={5.50}/>
           <MenuItem name="Flat White" price={6.00}/>

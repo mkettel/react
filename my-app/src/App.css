@@ -1,10 +1,8 @@
 /* this below is what sets the function app text. */
 .App {
-  text-align: center;
+  text-align: center; /* auto-centers the css */
 }
-.title {
-  /* color: blue; */
-}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
