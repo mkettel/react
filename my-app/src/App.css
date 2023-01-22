@@ -30,26 +30,13 @@
 .App-link {
   color: #61dafb;
 }
-.header {
-  display: flex;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-.header p {
-  margin-right: 10px;
-}
-.manager {
-  display: flex;
-}
-.manager p {
-  margin-right: 10px;
-}
 
 
 /* Menu Section */
 .menu {
-  display: flex;
-  max-width: 1200px;
+  display: grid;
+  grid-template-columns: .5fr .5fr;
+  max-width: 900px;
   margin: 0 auto;
 }
 .menuItem {
@@ -62,7 +49,24 @@
 .menuItem p {
   margin: 10px;
 }
+/* ---------------------------- */
 
+/* Manager Information */
+.management {
+  display: none;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.management p {
+  margin-right: 10px;
+}
+.manager {
+  display: flex;
+}
+.manager p {
+  margin-right: 10px;
+}
+/* ----------------------------- */
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

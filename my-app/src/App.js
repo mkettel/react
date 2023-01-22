@@ -6,9 +6,6 @@ function App() {
   return (
     <div className="App">
       {name}
-      <div className="header">
-        <p>Manager:</p><Manager name="Ryan" age={25} email="ryan@mountainview.com"/>
-      </div>
       <div className="menu">
         <div className="drinks">
           <h3>Drinks</h3>
@@ -19,8 +16,14 @@ function App() {
           <MenuItem name="Cold Brew" price={3.00}/>
         </div>
         <div className="food">
-
+          <h3>Food</h3>
+          <MenuItem name="Sausage, Egg & Cheese Buscuit" price={4.25}/>
+          <MenuItem name="Scone" price={2.75}/>
+          <MenuItem name="Muffin Assortment" price={3.00}/>
         </div>
+      <div className="management">
+        <p>Manager:</p><Manager name="Ryan" age={25} email="ryan@mountainview.com"/>
+      </div>
       </div>
     </div>
   );
