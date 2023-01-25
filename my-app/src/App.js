@@ -2,6 +2,7 @@ import logo from './logo.svg';
 // this imports the css file to the application file
 import './App.css';
 import { useSyncExternalStore } from 'react';
+import { Manager } from './Manager';
 
 function App() {
   const name = <h1 className='title'>Mountain View Coffee </h1>; // you can put the html as a variable then call it below which is very useful
@@ -49,15 +50,7 @@ function App() {
 
 
 // COMPONENTS ------------------------
-const Manager = (props) => {
-  return (
-    <div className='manager'>
-      <p>{props.name}</p>
-      <p>{props.age}</p>
-      <p>{props.email}</p>
-    </div>
-  )
-}
+// - Some are now in their own files so the code is a bit cleaner
 
 const MenuItem = (props) => {
   return (
