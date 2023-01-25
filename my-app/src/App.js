@@ -8,11 +8,12 @@ function App() {
   const price = 15.00;
   const redText = false;
   // drinks object below that could be used to get displayed in the menu or just to organize the data?
-  const drinks = [
+  const secretDrinks = [
     { name: "Dirty Chai", price: 5.00 },
     { name: "Mocha", price: 6.50 },
     { name: "Flat White", price: 3.50 },
-    { name: "Matcha Latte", price: 5.50 },
+    { name: "Matcha Vodka Latte", price: 5.50 },
+    { name: "Cold ASF Brew", price: 3.00 }
   ];
   return (
     <div className="App">
@@ -34,9 +35,9 @@ function App() {
           <MenuItem name="Muffin Assortment" price={3.00}/>
         </div>
       </div>
-      <div className="menu-two">
-        {drinks.map((drink, key) => {
-          return <Drink name={drink.name} price={drink.price} />
+      <div className="drinks">
+        {secretDrinks.map((drink, key) => {
+          return <SecretDrink name={drink.name} price={drink.price} />
         })}
       </div>
       <div className="management">
@@ -67,9 +68,10 @@ const MenuItem = (props) => {
   )
 }
 
-const Drink = (props) => {
+// This is a component that displays the name and price from the data structure drinks.
+const SecretDrink = (props) => {
   return (
-    <div>
+    <div className='menu-two'>
       {props.name} {props.price}
     </div>
   )
