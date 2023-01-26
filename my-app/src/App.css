@@ -142,7 +142,15 @@
 .row-item p {
   margin: 10px 0px;
 }
-
+/* Polling Section */
+.poll-container {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.vote-section {
+  margin: 10px;
+}
 
 @keyframes App-logo-spin {
   from {

@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import { useSyncExternalStore } from 'react';
 import { Manager } from './Manager';
+import { useState } from "react";
 
 function App() {
   const name = <h1 className='title'>Mountain View Coffee </h1>; // you can put the html as a variable then call it below which is very useful
@@ -17,7 +18,7 @@ function App() {
     { name: "Matcha Vodka Latte", price: 5.50 },
     { name: "Cold ASF Brew", price: 3.00 }
   ];
-  // MAIN DATASET FOR MENU ITEMS
+  // --MAIN DATASET FOR MENU ITEMS--
   const detailedMenu = [
     { name: "Drip Coffee", price: 2.50, isFood: false, drunk: false },
     { name: "Cappucino", price: 3.50, isFood: false, drunk: false },
@@ -34,8 +35,26 @@ function App() {
     { name: "Beer", price: 4.00, isFood: false, drunk: true },
     { name: "Nachos", price: 5.00, isFood: true, drunk: false },
     { name: "Fries", price: 4.00, isFood: true, drunk: false }
-
   ]
+  // --VOTING CONTROLS--
+  const [voteA, setVoteA] = useState(0);
+  const [voteB, setVoteB] = useState(0);
+  const increaseVoteA = () => {
+    setVoteA(voteA + 1);
+    console.log(voteA);
+  }
+  const increaseVoteB = () => {
+    setVoteB(voteB + 1);
+    console.log(voteB);
+  }
+  // --INPUT CONTROLS-- useless example but ki
+  const [inputValue, setInputValue] = useState("");
+  const handleInputChange = (event) => {
+    setInputValue(event.target.value);
+  }
+  // --SECRET MENU CONTROLS--
+  const [showText, setShowText] = useState(false);
+
   return (
     <div className="App">
        {/* // navbar */}
@@ -54,23 +73,6 @@ function App() {
       </div>
 
       {/* {price >= 15.00 ? <p>Add a free cookie?</p> : <p>Spend $15 or more to get a free cookie!</p>} */}
-      {/* hiding all of this for now */}
-      <div className="menu">
-        <div className="drinks">
-          <h3 style={{color: redText ? "red" : "black"}}>Drinks</h3>
-          <MenuItem name="Dirty Chai" price={5.00}/>
-          <MenuItem name="Mocha" price={5.50}/>
-          <MenuItem name="Flat White" price={6.00}/>
-          <MenuItem name="Matcha Latte" price={4.00}/>
-          <MenuItem name="Cold Brew" price={3.00}/>
-        </div>
-        <div className="food">
-          <h3>Food</h3>
-          <MenuItem name="Sausage, Egg & Cheese Buscuit" price={4.25}/>
-          <MenuItem name="Scone" price={2.75}/>
-          <MenuItem name="Muffin Assortment" price={3.00}/>
-        </div>
-      </div>
       <div className="drinks">
         <h3>Secret Menu</h3>
         {secretDrinks.map((drink, key) => {
@@ -101,6 +103,35 @@ function App() {
            )}
         </div>
       </div>
+      {/* Poll Section */}
+      <div className="poll-container">
+        <div className="vote-section">
+          <p>{voteA}</p>
+          <button onClick={increaseVoteA}>Vote</button>
+        </div>
+        <div className="vote-section">
+          <p>{voteB}</p>
+          <button onClick={increaseVoteB}>Vote</button>
+        </div>
+      </div>
+      {/* Special Section */}
+      <div className="specials-container">
+        <div className="special-title">
+          <input type="text" onChange={handleInputChange}/>
+          <p>Live Input Field</p>
+          <p>{inputValue}</p>
+        </div>
+      </div>
+      <div className="secret-menu">
+          <button onClick={() => {
+            setShowText(!showText);
+          }}>Secret Menu</button>
+          {showText === true &&
+          <ul>
+            <li>Dirty Ass Chai</li>
+            <li>Spiked Matcha</li>
+          </ul> }
+        </div>
     </div>
   );
 }
@@ -128,15 +159,7 @@ const RowMenu = (props) => {
   )
 }
 
-// ----------------------------
-const MenuItem = (props) => {
-  return (
-    <div className='menuItem'>
-       <p>{props.name}</p>
-       <p>${props.price}</p>
-    </div>
-  )
-}
+// ------------------------------------
 
 // This is a component that displays the name and price from the data structure drinks.
 const SecretDrink = (props) => {
