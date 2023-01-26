@@ -36,6 +36,7 @@ function App() {
     { name: "Nachos", price: 5.00, isFood: true, drunk: false },
     { name: "Fries", price: 4.00, isFood: true, drunk: false }
   ]
+  // *********STATE CHANGE FUNCTIONS***********
   // --VOTING CONTROLS--
   const [voteA, setVoteA] = useState(0);
   const [voteB, setVoteB] = useState(0);
@@ -54,6 +55,8 @@ function App() {
   }
   // --SECRET MENU CONTROLS--
   const [showText, setShowText] = useState(false);
+  // --CSS STATE CHANGING--
+  const [colorChange, setColorChange] = useState("black");
 
   return (
     <div className="App">
@@ -125,10 +128,13 @@ function App() {
       {/* below there is a secret menu that is displayed or hidden on button click. Annon function is used to do this. uses ternary operations and button click with states to display or not */}
       <div className="secret-menu">
           <button onClick={() => {
+            setColorChange(colorChange === "black" ? "red" : "black");
+          }}>Color Change</button>
+          <button onClick={() => {
             setShowText(!showText);
           }}>Secret Menu</button>
           {showText === true &&
-          <ul>
+          <ul style={{color: colorChange}}>
             <li>Dirty Ass Chai</li>
             <li>Spiked Matcha</li>
           </ul> }
