@@ -122,6 +122,7 @@ function App() {
           <p>{inputValue}</p>
         </div>
       </div>
+      {/* below there is a secret menu that is displayed or hidden on button click. Annon function is used to do this. uses ternary operations and button click with states to display or not */}
       <div className="secret-menu">
           <button onClick={() => {
             setShowText(!showText);
