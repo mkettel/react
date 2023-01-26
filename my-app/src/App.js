@@ -91,7 +91,7 @@ function App() {
           )}
         </div>
         <div className="menu-two">
-          <h3>Drink</h3>
+          <h3>Drinks</h3>
           {detailedMenu.map((item, key) => !item.isFood && <ColumnMenu name={item.name} price={item.price} />
            )}
         </div>
