@@ -6,6 +6,7 @@ import { Manager } from './Manager';
 
 function App() {
   const name = <h1 className='title'>Mountain View Coffee </h1>; // you can put the html as a variable then call it below which is very useful
+  const blurb = <p className='blurb'>Mountain View Coffee House is located in the sunny and beautiful mountains of Breckenridge, Colorado. Come by and fuel any activity or to wind down at the end of of a great day in the mountains</p>
   const price = 15.00;
   const redText = false;
   // drinks object below that could be used to get displayed in the menu or just to organize the data?
@@ -18,31 +19,40 @@ function App() {
   ];
   // MAIN DATASET FOR MENU ITEMS
   const detailedMenu = [
-    { name: "Drip Coffee", price: 2.50, isFood: false },
-    { name: "Cappucino", price: 3.50, isFood: false },
-    { name: "Mocha", price: 3.50, isFood: false },
-    { name: "Frappe", price: 5.50, isFood: false },
-    { name: "Donut", price: 2.00, isFood: true },
-    { name: "Chicken Strips", price: 5.50, isFood: true },
-    { name: "Sausage, Egg & Cheese Sandwich", price: 6.00, isFood: true },
-    { name: "Sausage, Bacon & Cheese Sandwich", price: 6.00, isFood: true },
-    { name: "Cesar Salad", price: 7.00, isFood: true },
-    { name: "Iced Tea", price: 3.00, isFood: false },
-    { name: "Espresso Shot", price: 6.00, isFood: false }
+    { name: "Drip Coffee", price: 2.50, isFood: false, drunk: false },
+    { name: "Cappucino", price: 3.50, isFood: false, drunk: false },
+    { name: "Mocha", price: 3.50, isFood: false, drunk: false },
+    { name: "Frappe", price: 5.50, isFood: false, drunk: false },
+    { name: "Donut", price: 2.00, isFood: true, drunk: false },
+    { name: "Chicken Strips", price: 5.50, isFood: true, drunk: false },
+    { name: "Sausage, Egg & Cheese Sandwich", price: 6.00, isFood: true, drunk: false },
+    { name: "Sausage, Bacon & Cheese Sandwich", price: 6.00, isFood: true, drunk: false },
+    { name: "Cesar Salad", price: 7.00, isFood: true, drunk: false },
+    { name: "Iced Tea", price: 3.00, isFood: false, drunk: false },
+    { name: "Espresso Shot", price: 6.00, isFood: false, drunk: false },
+    { name: "Irish Coffee", price: 6.00, isFood: false, drunk: true },
+    { name: "Beer", price: 4.00, isFood: false, drunk: true },
+    { name: "Nachos", price: 5.00, isFood: true, drunk: false },
+    { name: "Fries", price: 4.00, isFood: true, drunk: false }
+
   ]
   return (
     <div className="App">
        {/* // navbar */}
       <div className='nav-container'>
         <div className='nav-left'>
+        {/* logo here */}
+        </div>
+        <div className="nav-middle">
+          <p>{name}</p>
         </div>
         <div className='nav-right'>
-          <p>Menu</p>
-          <p>Contact</p>
           <p>Location</p>
+          <p>Contact</p>
+          <p>Menu</p>
         </div>
       </div>
-      {name}
+
       {/* {price >= 15.00 ? <p>Add a free cookie?</p> : <p>Spend $15 or more to get a free cookie!</p>} */}
       {/* hiding all of this for now */}
       <div className="menu">
@@ -70,17 +80,24 @@ function App() {
       <div className="management">
         <p>Manager:</p><Manager name="Ryan" age={25} email="ryan@mountainview.com"/>
       </div>
-      {/* <hr /> */}
 
+    {/* This is where i am playing with the large dataset and manipulating what is shown through components */}
+    {/* I will play around with cleaning up the code as well */}
+      <div className="blurb-container">{blurb}</div>
       <div className="main-menu">
         <div className='menu-two'>
-          <h3>Food Menu</h3>
+          <h3>Food</h3>
           {detailedMenu.map((item, key) => item.isFood && <ColumnMenu name={item.name} price={item.price} />
           )}
         </div>
         <div className="menu-two">
-          <h3>Drink Menu</h3>
+          <h3>Drink</h3>
           {detailedMenu.map((item, key) => !item.isFood && <ColumnMenu name={item.name} price={item.price} />
+           )}
+        </div>
+        <div className="row-menu">
+          <h3>Alcohol</h3>
+          {detailedMenu.map((item, key) => item.drunk && <RowMenu name={item.name} price={item.price} />
            )}
         </div>
       </div>
@@ -102,8 +119,16 @@ const ColumnMenu = (props) => {
     </div>
   )
 }
+const RowMenu = (props) => {
+  return (
+    <div className='row-item'>
+      <p>{props.name}</p>
+      <p>${props.price}</p>
+    </div>
+  )
+}
 
-
+// ----------------------------
 const MenuItem = (props) => {
   return (
     <div className='menuItem'>
