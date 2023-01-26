@@ -16,7 +16,7 @@ function App() {
     { name: "Matcha Vodka Latte", price: 5.50 },
     { name: "Cold ASF Brew", price: 3.00 }
   ];
-  // detailed menu to loop through
+  // MAIN DATASET FOR MENU ITEMS
   const detailedMenu = [
     { name: "Drip Coffee", price: 2.50, isFood: false },
     { name: "Cappucino", price: 3.50, isFood: false },
@@ -75,12 +75,13 @@ function App() {
       <div className="main-menu">
         <div className='menu-two'>
           <h3>Food Menu</h3>
-          {detailedMenu.map((item, key) => item.isFood && <p> {item.name} </p>
+          {detailedMenu.map((item, key) => item.isFood && <ColumnMenu name={item.name} price={item.price} />
           )}
         </div>
         <div className="menu-two">
           <h3>Drink Menu</h3>
-          {detailedMenu.map((item, key) => !item.isFood && <p> {item.name} </p> )}
+          {detailedMenu.map((item, key) => !item.isFood && <ColumnMenu name={item.name} price={item.price} />
+           )}
         </div>
       </div>
     </div>
@@ -90,6 +91,18 @@ function App() {
 
 // COMPONENTS ------------------------
 // - Some are now in their own files so the code is a bit cleaner
+
+
+// Displays the two column menu styles for the general drinks and food
+const ColumnMenu = (props) => {
+  return (
+    <div className='item'>
+      <p>{props.name}</p>
+      <p>${props.price}</p>
+    </div>
+  )
+}
+
 
 const MenuItem = (props) => {
   return (

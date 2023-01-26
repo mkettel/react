@@ -83,13 +83,16 @@
   margin: 20px;
 }
 .title {
+  font-size: 46px;
   margin-top: 10px;
-  margin-bottom: 10%;
+  margin-bottom: 60px;
 }
 /* end navbar */
 
 /* MAIN MENU */
 .main-menu {
+  max-width: 1200px;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
   justify-items: center;
@@ -99,6 +102,12 @@
   flex-direction: column;
   justify-content: start;
   align-items: flex-start;
+  width: 80%;
+}
+.menu-two .item {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
 
 @keyframes App-logo-spin {
