@@ -32,7 +32,7 @@
 
 /* Menu Section */
 .menu {
-  display: grid;
+  display: none;
   grid-template-columns: .5fr .5fr;
   max-width: 900px;
   margin: 0 auto;
@@ -65,6 +65,42 @@
   margin-right: 10px;
 }
 /* ----------------------------- */
+.drinks {
+  display: none;
+}
+/* END HIDDEN CODE */
+
+/* Navbar */
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+.nav-right {
+  display: flex;
+}
+.nav-right p {
+  margin: 20px;
+}
+.title {
+  margin-top: 10px;
+  margin-bottom: 10%;
+}
+/* end navbar */
+
+/* MAIN MENU */
+.main-menu {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+}
+.menu-two {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: flex-start;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
