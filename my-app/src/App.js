@@ -58,6 +58,14 @@ function App() {
   // --CSS STATE CHANGING--
   const [colorChange, setColorChange] = useState("black");
 
+  // --ORDER LIST STATES--
+  const [orderList, setOrderList] = useState([]);
+  const [newOrder, setNewOrder] = useState("");
+
+  const handleOrderChange = (event) => {
+    setNewOrder(event.target.value);
+  }
+
   return (
     <div className="App">
        {/* // navbar */}
@@ -138,7 +146,14 @@ function App() {
             <li>Dirty Ass Chai</li>
             <li>Spiked Matcha</li>
           </ul> }
-        </div>
+      </div>
+      {/* CRUD Orderlist Section */}
+      <div className="order-container">
+        <input type="text" onChange={handleOrderChange}/>
+        <button>Add Order</button>
+      </div>
+      <div className="list-container">
+      </div>
     </div>
   );
 }
