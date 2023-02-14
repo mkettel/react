@@ -158,7 +158,30 @@
 }
 .list-container {
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: flex-start;
+  width: 500px;
+  margin: 0 auto;
 }
+.order-item {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+.order-item.completed {
+  background-color: green;
+}
+.order-item p {
+  padding: 10px;
+}
+.item-button:hover {
+  cursor: pointer;
+  transition: .4s;
+}
+
 
 @keyframes App-logo-spin {
   from {

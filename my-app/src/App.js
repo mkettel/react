@@ -66,9 +66,20 @@ function App() {
     setNewOrder(event.target.value);
   };
   const addOrder = () => {
+    const order = {
+      id: orderList.length === 0 ? 1 : orderList[orderList.length - 1].id + 1,
+      orderName: newOrder
+    }
     const newOrderList = [...orderList, newOrder];
     setOrderList(newOrderList)
-  }
+  };
+  const deleteTask = (id) => {
+    const newerOrderList = orderList.filter((order) => {
+      return order.id !== id
+    })
+    setOrderList(newerOrderList);
+  };
+
 
   return (
     <div className="App">
@@ -162,7 +173,12 @@ function App() {
       </div>
       <div className="list-container">
         {orderList.map((order) => {
-          return <p>{order}</p>
+          return (
+          <div className='order-item'>
+            <p>{order}</p>
+            <button onClick={() => deleteTask(order.id)} className='item-button'> X </button>
+          </div>
+          );
         })}
 
       </div>
