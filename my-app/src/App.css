@@ -152,6 +152,14 @@
   margin: 10px;
 }
 
+/* Order List Tracker */
+.order-container {
+  margin-top: 25px;
+}
+.list-container {
+  padding: 20px;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

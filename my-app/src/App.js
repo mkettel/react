@@ -64,6 +64,10 @@ function App() {
 
   const handleOrderChange = (event) => {
     setNewOrder(event.target.value);
+  };
+  const addOrder = () => {
+    const newOrderList = [...orderList, newOrder];
+    setOrderList(newOrderList)
   }
 
   return (
@@ -125,6 +129,7 @@ function App() {
           <button onClick={increaseVoteB}>Vote</button>
         </div>
       </div>
+      <hr />
       {/* Special Section */}
       <div className="specials-container">
         <div className="special-title">
@@ -133,6 +138,7 @@ function App() {
           <p>{inputValue}</p>
         </div>
       </div>
+      <hr />
       {/* below there is a secret menu that is displayed or hidden on button click. Annon function is used to do this. uses ternary operations and button click with states to display or not */}
       <div className="secret-menu">
           <button onClick={() => {
@@ -147,12 +153,18 @@ function App() {
             <li>Spiked Matcha</li>
           </ul> }
       </div>
+      <hr />
       {/* CRUD Orderlist Section */}
+      <h3 className='order-title'>Order List</h3>
       <div className="order-container">
         <input type="text" onChange={handleOrderChange}/>
-        <button>Add Order</button>
+        <button onClick={addOrder}>Add Order</button>
       </div>
       <div className="list-container">
+        {orderList.map((order) => {
+          return <p>{order}</p>
+        })}
+
       </div>
     </div>
   );
